@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PhoneShop - Premium Smartphones</title>
+
+<meta
+    name="description"
+    content="PhoneShop - Buy the latest smartphones at the best prices."
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+<div class="container header-content">
+
+    <a href="#" class="logo">
+
+        <div class="logo-icon">
+            <span>📱</span>
+        </div>
+
+        <div>
+            <strong>Phone</strong><span>Shop</span>
+            <small>SMART TECHNOLOGY</small>
+        </div>
+
+    </a>
+
+    <nav class="navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#products">Phones</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+
+        <select id="currency" class="currency-select">
+            <option value="USD">USD $</option>
+            <option value="KHR">KHR ៛</option>
+        </select>
+
+        <button
+            class="icon-button"
+            onclick="openCart()"
+            aria-label="Shopping cart"
+        >
+            🛒
+            <span id="cart-count">0</span>
+        </button>
+
+        <button
+            class="menu-button"
+            onclick="toggleMobileMenu()"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</div>
+
+<div id="mobile-menu" class="mobile-menu">
+
+    <a href="#home">Home</a>
+    <a href="#products">Phones</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+
+</div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+<div class="hero-overlay"></div>
+
+<div class="container hero-content">
+
+    <div class="hero-text">
+
+        <div class="badge">
+            🔥 NEW ARRIVALS 2026
+        </div>
+
+        <h1>
+            The Future<br>
+            <span>In Your Hands.</span>
+        </h1>
+
+        <p>
+            Discover the latest smartphones from Apple,
+            Samsung, Xiaomi, Google and more.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products" class="btn btn-primary">
+                Shop Phones →
+            </a>
+
+            <a href="#about" class="btn btn-outline">
+                Learn More
+            </a>
+
+        </div>
+
+        <div class="hero-info">
+
+            <div>
+                <strong>100%</strong>
+                <span>Original</span>
+            </div>
+
+            <div>
+                <strong>1 Year</strong>
+                <span>Warranty</span>
+            </div>
+
+            <div>
+                <strong>Fast</strong>
+                <span>Delivery</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-phone">
+
+        <div class="phone-glow"></div>
+
+        <img
+            src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=900&q=90"
+            alt="Premium smartphone"
+        >
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================= BRANDS ================= -->
+
+<section class="brands">
+
+<div class="container">
+
+    <p class="brands-title">
+        SHOP BY BRAND
+    </p>
+
+    <div class="brand-list">
+
+        <button onclick="filterBrand('all')">
+            ALL
+        </button>
+
+        <button onclick="filterBrand('Apple')">
+             Apple
+        </button>
+
+        <button onclick="filterBrand('Samsung')">
+            Samsung
+        </button>
+
+        <button onclick="filterBrand('Xiaomi')">
+            Xiaomi
+        </button>
+
+        <button onclick="filterBrand('Google')">
+            Google
+        </button>
+
+        <button onclick="filterBrand('OnePlus')">
+            OnePlus
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+
+<section id="products" class="products-section">
+
+<div class="container">
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">
+                OUR COLLECTION
+            </span>
+
+            <h2>
+                Latest Smartphones
+            </h2>
+
+            <p>
+                Find the perfect phone for your lifestyle.
+            </p>
+
+        </div>
+
+        <div class="search-box">
+
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search phones..."
+                oninput="searchProducts()"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="products-grid" id="product-list">
+
+    </div>
+
+
+    <div id="no-products" class="no-products">
+
+        <div>📱</div>
+
+        <h3>No phones found</h3>
+
+        <p>
+            Try another search or brand.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================= PROMOTION ================= -->
+
+<section class="promotion">
+
+<div class="container promotion-content">
+
+    <div>
+
+        <span>
+            SPECIAL OFFER
+        </span>
+
+        <h2>
+            Get up to <strong>20% OFF</strong>
+        </h2>
+
+        <p>
+            Selected smartphones this month.
+        </p>
+
+    </div>
+
+    <a href="#products" class="btn btn-white">
+        Shop Now →
+    </a>
+
+</div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="about-section">
+
+<div class="container about-grid">
+
+    <div class="about-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1000&q=90"
+            alt="Smartphone store"
+        >
+
+    </div>
+
+    <div class="about-text">
+
+        <span class="section-label">
+            ABOUT PHONESHOP
+        </span>
+
+        <h2>
+            Technology You Can Trust.
+        </h2>
+
+        <p>
+            PhoneShop is a modern smartphone store
+            offering genuine devices, competitive prices,
+            and reliable customer service.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <strong>100% Genuine</strong>
+                    <p>
+                        Original products with warranty.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🚚
+                </div>
+
+                <div>
+                    <strong>Fast Delivery</strong>
+                    <p>
+                        Quick delivery across Cambodia.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🛡️
+                </div>
+
+                <div>
+                    <strong>Warranty</strong>
+                    <p>
+                        Reliable after-sales support.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact-section">
+
+<div class="container">
+
+    <div class="contact-card">
+
+        <div>
+
+            <span class="section-label">
+                NEED HELP?
+            </span>
+
+            <h2>
+                Let's find your next phone.
+            </h2>
+
+            <p>
+                Contact our team for product information,
+                availability and orders.
+            </p>
+
+        </div>
+
+        <div class="contact-buttons">
+
+            <a
+                href="tel:+85512345678"
+                class="contact-button"
+            >
+                📞 Call Us
+            </a>
+
+            <a
+                href="https://t.me/"
+                target="_blank"
+                class="contact-button telegram"
+            >
+                ✈️ Telegram
+            </a>
+
+            <a
+                href="https://facebook.com/"
+                target="_blank"
+                class="contact-button facebook"
+            >
+                f Facebook
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="container footer-grid">
+
+    <div class="footer-brand">
+
+        <div class="logo footer-logo">
+
+            <div class="logo-icon">
+                📱
+            </div>
+
+            <div>
+                <strong>Phone</strong><span>Shop</span>
+                <small>SMART TECHNOLOGY</small>
+            </div>
+
+        </div>
+
+        <p>
+            Premium smartphones at prices
+            you can trust.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h4>QUICK LINKS</h4>
+
+        <a href="#home">Home</a>
+        <a href="#products">Phones</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+
+    </div>
+
+
+    <div>
+
+        <h4>BRANDS</h4>
+
+        <a href="#products">Apple</a>
+        <a href="#products">Samsung</a>
+        <a href="#products">Xiaomi</a>
+        <a href="#products">Google</a>
+
+    </div>
+
+
+    <div>
+
+        <h4>CONTACT</h4>
+
+        <p>📍 Phnom Penh, Cambodia</p>
+        <p>📞 +855 12 345 678</p>
+        <p>✉️ hello@phoneshop.com</p>
+
+    </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    <div class="container">
+
+        © 2026 PhoneShop. All rights reserved.
+
+    </div>
+
+</div>
+
+</footer>
+
+<!-- ================= CART ================= -->
+
+<div
+    id="cart-overlay"
+    class="cart-overlay"
+    onclick="closeCart()"
+></div>
+
+<aside id="cart-drawer" class="cart-drawer">
+
+<div class="cart-header">
+
+    <h2>
+        Your Cart
+    </h2>
+
+    <button onclick="closeCart()">
+        ✕
+    </button>
+
+</div>
+
+<div id="cart-items" class="cart-items">
+
+    <div class="empty-cart">
+
+        <div>🛒</div>
+
+        <h3>
+            Your cart is empty
+        </h3>
+
+        <p>
+            Add some phones to your cart.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="cart-footer">
+
+    <div class="cart-total">
+
+        <span>
+            Total
+        </span>
+
+        <strong id="cart-total">
+            $0.00
+        </strong>
+
+    </div>
+
+    <button
+        class="checkout-button"
+        onclick="checkout()"
+    >
+        Checkout
+    </button>
+
+</div>
+
+</aside>
+
+<!-- ================= PRODUCT MODAL ================= -->
+
+<div id="product-modal" class="modal">
+
+<div
+    class="modal-backdrop"
+    onclick="closeProductModal()"
+></div>
+
+<div class="modal-content">
+
+    <button
+        class="modal-close"
+        onclick="closeProductModal()"
+    >
+        ✕
+    </button>
+
+    <div id="modal-body"></div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
